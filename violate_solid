@@ -1,0 +1,97 @@
+package com.company;
+interface UPIPayments{
+   public void payMoney();
+   public void getScratchCard();
+   public void getCashBackAsCreditBalance();
+}
+interface cardOperation{
+    public void swiping(String amount);
+    public void usedAtAtm(String amount);
+    public void monthlyLoan(long amount);
+}
+//dip
+class CreditCard{
+    public static void doTransaction(long amount ){
+        System.out.println("Want to Use Credit Card");
+    }
+}
+class Shopping{
+    private CreditCard credit;
+    public Shopping(CreditCard credit) {
+        this.credit = credit;
+    }
+    public void makeTransaction(long amount){
+        CreditCard.doTransaction(amount);
+    }
+}
+//isp
+class PhonePe implements UPIPayments{
+    @Override
+    public void payMoney() {
+        System.out.println("Can be used for paying money");
+    }
+    @Override
+    public void getScratchCard() {
+        System.out.println("You can get scratch cards in phonepe");
+    }
+    @Override
+    public void getCashBackAsCreditBalance() {
+        System.out.println("Does not follow ISP");
+    }
+}
+//LSP
+class DebitCard implements cardOperation{
+    @Override
+    public void swiping(String amount) {
+        System.out.println("It can be used at swiping stores of amount"+amount);
+    }
+    @Override
+    public void usedAtAtm(String amount) {
+        System.out.println("It can be used to draw amount of"+amount);
+    }
+    @Override
+    public void monthlyLoan(long amount) {
+        System.out.println("Does not follow LSP");
+    }
+}
+//SRP  OCP
+class BankService{
+    public void accountType(String typeOfAccount)
+    {
+        if(typeOfAccount.equals("Current"))
+        {
+            System.out.println("Current Account");
+        }
+        if(typeOfAccount.equals("Savings"))
+        {
+            System.out.println("Savings Account");
+        }
+    }
+    public void sendOtp(String medium) {
+        if (medium.equals("email")) {
+            System.out.println("Sending OTP via email");
+        }
+        if(medium.equals("mobile"))
+        {
+            System.out.println("Sending OTP via mobile");
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        //DIP
+         CreditCard credit=new CreditCard();
+         Shopping shop=new Shopping(credit);
+         shop.makeTransaction( 500);
+         //ISP
+        PhonePe phonepe=new PhonePe();
+        phonepe.getCashBackAsCreditBalance();
+        //LSP
+        DebitCard debitcard=new DebitCard();
+        debitcard.monthlyLoan(1000);
+        //SRP OCP
+        BankService bank=new BankService();
+        bank.accountType("Current");
+        bank.sendOtp("email");
+    }
+}
