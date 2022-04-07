@@ -1,0 +1,45 @@
+//Write a java function that checks if the input string contains all the letters of the alphabet a-z (case-insensitive). Write time and space complexity of your solution as comments in the source file.
+
+
+package assignments;
+
+import java.time.chrono.MinguoDate;
+import java.util.Scanner;
+
+public class Assignment2 {
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        String str;
+        int t=0,index=0;
+        boolean[] visited= new boolean[26];
+        System.out.println("Enter the string");
+        str=sc.nextLine();
+        for(int i=0;i<str.length();i++)
+        {
+            if('a'<= str.charAt(i) && str.charAt(i)<='z')
+            {
+                index=str.charAt(i)-'a';
+            }
+            else if('A'<= str.charAt(i) && str.charAt(i)<='Z')
+            {
+                index=str.charAt(i)-'A';
+            }
+            visited[index]=true;
+        }
+        for(int i=0;i<26;i++)
+        {
+            if(!visited[i])
+            {
+                t=1;
+                System.out.println("String does not contains all the letters of alphabets");
+                break;
+            }
+        }
+        if(t==0)
+        {
+            System.out.println("String contains all the letters of alphabets");
+        }
+    }
+}
+
