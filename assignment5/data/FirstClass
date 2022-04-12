@@ -1,0 +1,20 @@
+package goutham.assignment5.data;
+
+public class FirstClass {
+    int id;
+    char status;
+
+    public void printInstance() {
+        System.out.println(this.id);
+        System.out.println(this.status);
+    }
+
+    /*public void printLocal() {
+        int i;
+        char c;
+        System.out.println(i);
+        System.out.println(c);
+    }*/
+    //The method printlocal() gives compile time error, because we are printing local variables which are not initialized.
+}
+
