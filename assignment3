@@ -4,6 +4,7 @@
 
 
 
+
 package assignments;
 
 import java.io.BufferedReader;
@@ -44,14 +45,14 @@ public class Assignment3 {
             System.out.println(durationArray);
             midIndex = durationArray.size() / 2;
             if (durationArray.size() % 2 == 0) {
-                float var10001 = (Float)durationArray.get(midIndex) + (Float)durationArray.get(midIndex - 1);
-                System.out.println("The median is:" + var10001 / 2.0F);
+                float var = (Float)durationArray.get(midIndex) + (Float)durationArray.get(midIndex - 1);
+                System.out.println("The median is:" + var / 2.0F);
             } else {
-                Object var8 = durationArray.get(midIndex);
-                System.out.println("The median is:" + var8);
+                Object var1 = durationArray.get(midIndex);
+                System.out.println("The median is:" + var1);
             }
-        } catch (SecurityException | IOException | NullPointerException var7) {
-            System.out.println(var7.getMessage());
+        } catch (SecurityException | IOException | NullPointerException var2) {
+            System.out.println(var2.getMessage());
         }
 
     }
