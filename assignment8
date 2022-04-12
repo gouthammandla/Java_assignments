@@ -1,0 +1,56 @@
+//Create three new types of exceptions. Write a class with a method that throws all three. In main( ), call the method but only use a single catch clause that will catch all three types of exceptions. Add a finally clause and verify that your finally clause is executed, even if a NullPointerException is thrown.
+
+
+
+
+package assignments;
+
+import java.util.Random;
+
+class FirstTypeException extends Exception{}
+class SecondTypeException extends Exception{}
+class ThirdTypeException extends Exception{}
+
+public class Assignment8 {
+
+    public void throwMethod(int i) throws
+            FirstTypeException, SecondTypeException, ThirdTypeException{
+        if (i<30) {
+            System.out.println("Throwing First Type of Exception");
+            throw new FirstTypeException();
+        }
+
+        else if(i>=30 && i<60){System.out.println("Throwing Second Type of Exception");
+            throw new SecondTypeException();}
+
+        else if(i>=60 && i<100){
+            System.out.println("Throwing Third Type of Exception");
+            throw new ThirdTypeException();
+        }
+
+        else {
+            System.out.println("Throwing NullPointerException exception");
+            throw new NullPointerException();
+        }
+    }
+
+    public static void main(String a[]) {
+        Assignment8 obj = new Assignment8();
+        Random r = new Random();
+        int i = r.nextInt(150) ;
+
+        try {
+
+            obj.throwMethod(i);
+        } catch (FirstTypeException | SecondTypeException | ThirdTypeException | NullPointerException e) {
+            e.printStackTrace();
+
+        }
+        finally {
+            System.out.println("'Finally' is always executed");
+        }
+    }
+
+
+}
+

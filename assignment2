@@ -1,6 +1,8 @@
 //Write a java function that checks if the input string contains all the letters of the alphabet a-z (case-insensitive). Write time and space complexity of your solution as comments in the source file.
 
 
+package assignments;
+
 import java.time.chrono.MinguoDate;
 import java.util.*;
 
@@ -34,6 +36,3 @@ public class Assignment2 {
     }
 }
 
-
-Time complexity is O(n)
-Space complexity is O(1)

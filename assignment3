@@ -1,0 +1,69 @@
+//Write a java function that will ping any host ( given as input ) and computes the median of the time taken to ping.
+
+
+
+
+
+package assignments;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Assignment3 {
+
+    public static void runCommand(String command) {
+        ArrayList durationArray = new ArrayList();
+
+        try {
+            Process ping = Runtime.getRuntime().exec(command);
+            BufferedReader responseStream = new BufferedReader(new InputStreamReader(ping.getInputStream()));
+            System.out.println(responseStream.readLine());
+
+            String responseLine;
+            int midIndex;
+            while((responseLine = responseStream.readLine()) != null) {
+                System.out.println(responseLine);
+                midIndex = responseLine.indexOf("time=");
+                int indexOfMs = responseLine.lastIndexOf("ms");
+                if (midIndex != -1 && indexOfMs != -1) {
+                    durationArray.add(Float.parseFloat(responseLine.substring(midIndex + 5, indexOfMs - 1)));
+                }
+            }
+
+            Collections.sort(durationArray);
+            if (durationArray.isEmpty()) {
+                System.out.println("Enter a correct domain name or address");
+                return;
+            }
+
+            System.out.println(durationArray);
+            midIndex = durationArray.size() / 2;
+            if (durationArray.size() % 2 == 0) {
+                float var10001 = (Float)durationArray.get(midIndex) + (Float)durationArray.get(midIndex - 1);
+                System.out.println("The median is:" + var10001 / 2.0F);
+            } else {
+                Object var8 = durationArray.get(midIndex);
+                System.out.println("The median is:" + var8);
+            }
+        } catch (SecurityException | IOException | NullPointerException var7) {
+            System.out.println(var7.getMessage());
+        }
+
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the ip address or domain name you want to ping");
+        String ipAddress = sc.nextLine();
+        System.out.println("Enter how many times you want to ping");
+        int noOfPings = sc.nextInt();
+        runCommand("ping -c" + noOfPings + " " + ipAddress);
+    }
+}
+
+
