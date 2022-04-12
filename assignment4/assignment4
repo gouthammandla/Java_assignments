@@ -31,6 +31,8 @@ No range
 
 
 
+
+
 package assignments.Assignment4;
 
 import java.io.PrintStream;
@@ -59,10 +61,11 @@ public class Assignment4 {
             Calendar currentDateCalendar = Calendar.getInstance();
             signUpCalendar.setTime(signupDate);
             currentDateCalendar.setTime(currentDate);
-            signUpCalendar.set(1, currentDateCalendar.get(1));
-            signUpCalendar.add(5, 30);
+            //System.out.println(currentDateCalendar.get(Calendar.YEAR));
+            signUpCalendar.set(Calendar.YEAR, currentDateCalendar.get(Calendar.YEAR));
+            signUpCalendar.add(signUpCalendar.DATE, 30);
             Date kycEndDate = signUpCalendar.getTime();
-            signUpCalendar.add(5, -60);
+            signUpCalendar.add(signUpCalendar.DATE, -60);
             Date kycStartDate = signUpCalendar.getTime();
             if (kycStartDate.compareTo(currentDate) > 0) {
                 System.out.println("No Range");
