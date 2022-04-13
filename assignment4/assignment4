@@ -76,9 +76,8 @@ public class Assignment4 {
                 kycEndDate = currentDate;
             }
 
-            PrintStream var10000 = System.out;
-            String var10001 = requiredType.format(kycStartDate);
-            var10000.println(var10001 + " " + requiredType.format(kycEndDate));
+     
+            System.out.println(requiredType.format(kycStartDate)+ " " + requiredType.format(kycEndDate));
         } else {
             System.out.println("No Range");
         }
