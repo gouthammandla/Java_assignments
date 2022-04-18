@@ -1,0 +1,92 @@
+// Create a Cycle interface, with implementations Unicycle, Bicycle and Tricycle. Create factories for each type of Cycle, and code that uses these factories.
+
+
+
+
+package assignments.Assignment7;
+interface cycle{
+    public void noOfTyres();
+}
+
+class UCycle implements cycle{
+
+    @Override
+    public void noOfTyres() {
+        System.out.println("One");
+    }
+}
+class BCycle implements cycle{
+
+    @Override
+    public void noOfTyres() {
+     System.out.println("Two");
+    }
+}
+class TCycle implements cycle{
+
+    @Override
+    public void noOfTyres() {
+        System.out.println("Three");
+    }
+}
+class Factory1{
+    public cycle uniCycle(String s)
+    {
+        cycle c1=null;
+        if(s==null)
+        {
+            return null;
+        }
+        if(s=="unicycle")
+        {
+            c1=new UCycle();
+        }
+        return c1;
+    }
+}
+class Factory2{
+    public cycle biCycle(String s)
+    {
+        cycle c2=null;
+        if(s==null)
+        {
+            return null;
+        }
+        else if(s=="bicycle")
+        {
+            c2=new BCycle();
+        }
+        return c2;
+    }
+}
+class Factory3{
+    public cycle triCycle(String s)
+    {
+        cycle c3=null;
+        if(s==null)
+        {
+            return null;
+        }
+        else if(s=="tricycle")
+        {
+            c3=new TCycle();
+        }
+        return c3;
+    }
+}
+
+class Factories{
+    public static void main(String[] args)
+    {
+        Factory1 f1=new Factory1();
+        cycle u=f1.uniCycle("unicycle");
+        u.noOfTyres();
+        Factory2 f2=new Factory2();
+        cycle b=f2.biCycle("bicycle");
+        b.noOfTyres();
+        Factory3 f3=new Factory3();
+        cycle t=f3.triCycle("tricycle");
+        t.noOfTyres();
+    }
+}
+

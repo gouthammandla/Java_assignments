@@ -1,0 +1,84 @@
+//Create three interfaces, each with two methods. Inherit a new interface that combines the three, adding a new method. Create a class by implementing the new interface and also inheriting from a concrete class. Now write four methods, each of which takes one of the four interfaces as an argument. In main( ), create an object of your class and pass it to each of the methods.
+
+
+
+
+package assignments.Assignment7;
+
+class ConcreteClass{}
+interface if1{
+    void method11();
+    void method12();
+}
+
+interface if2{
+    void method21();
+    void method22();
+}
+
+interface if3{
+    void method31();
+    void method32();
+}
+
+interface NewInterface extends if1,if2,if3{
+    void newMethod();
+}
+
+class NewClass extends ConcreteClass implements NewInterface{
+
+    @Override
+    public void method11() {
+        System.out.println("This is method1 in interface 1");
+    }
+
+    @Override
+    public void method12() {
+        System.out.println("This is method2 in interface 1");
+    }
+
+    @Override
+    public void method21() {
+        System.out.println("This is method1 in interface 2");
+    }
+
+    @Override
+    public void method22() {
+        System.out.println("This is method2 in interface 2");
+    }
+
+    @Override
+    public void method31() {
+        System.out.println("This is method1 in interface 3");
+    }
+
+    @Override
+    public void method32() {
+        System.out.println("This is method2 in interface 3");
+
+    }
+
+    @Override
+    public void newMethod() {
+        System.out.println("This is new method in new interface");
+
+    }
+}
+
+public class Interfaces {
+    public static void m1(if1 i){i.method11();}
+    public static void m2(if2 i){i.method21();}
+    public static void m3(if3 i){i.method31();}
+    public static void m4(NewInterface i){i.newMethod();}
+
+
+
+    public static void main(String a[]){
+        NewClass obj = new NewClass();
+        m1(obj);
+        m2(obj);
+        m3(obj);
+        m4(obj);
+    }
+
+}
