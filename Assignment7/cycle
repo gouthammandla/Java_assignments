@@ -1,0 +1,53 @@
+//Create a Cycle class, with subclasses Unicycle, Bicycle and Tricycle. Add a balance( ) method to Unicycle and Bicycle, but not to Tricycle. Create instances of all three types and upcast them to an array of Cycle. Try to call balance( ) on each element of the array and observe the results. Downcast and call balance( ) and observe what happens
+
+
+
+package assignments.Assignment7;
+
+import java.util.ArrayList;
+
+public class Cycle{
+
+
+}
+class UniCycle extends Cycle{
+     public void balance(){
+           System.out.println("Unicycle");
+     }
+
+
+}
+class Bicycle extends Cycle{
+    public void balance(){
+         System.out.println("Bicycle");
+    }
+
+}
+class TriCycle extends Cycle{
+
+}
+class Mains{
+    public static void main(String[] args)
+    {
+        Cycle c1= new UniCycle();
+        Cycle c2= new Bicycle();
+        Cycle c3= new TriCycle();
+        ArrayList<Cycle> arrayList=new ArrayList<>();
+        arrayList.add(c1);
+        arrayList.add(c2);
+        arrayList.add(c3);
+        /*Displays error as Cycle class doesn't contain balance() method
+        arrayList.get(0).balance();
+        arrayList.get(0).balance();
+        arrayList.get(0).balance();*/
+        arrayList.get(0);
+        arrayList.get(0);
+        UniCycle u=(UniCycle) arrayList.get(0);
+        Bicycle b=(Bicycle)arrayList.get(1);
+        TriCycle t=(TriCycle)arrayList.get(2);
+        u.balance();
+        b.balance();
+
+    }
+}
+

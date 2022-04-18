@@ -1,0 +1,41 @@
+package assignments.Assignment10;
+
+public class ListIterator<T>{
+    Node<T> head;
+    Node<T> currentNode;
+    ListIterator(Node<T> head){
+        this.head = head;
+    }
+
+    void insert(T data){
+
+        currentNode = new Node<>(data,null);
+        if(head == null){
+            head = currentNode;
+        }
+        else{
+            Node<T> temp = head;
+            while((temp.next != null)){
+                temp = temp.next;
+            }
+            temp.next = currentNode;
+        }
+
+    }
+
+    // REMOVE METHOD
+
+    void remove(){
+        Node temp = head;
+        if(head.next == null){
+            head = null;
+            return ;
+        }
+        while(temp.next.next!=null){
+            temp = temp.next;
+        }
+        temp.next = null;
+
+    }
+}
+

@@ -1,0 +1,36 @@
+//Create a class with an inner class that has a non-default constructor (one that takes arguments). Create a second class with an inner class that inherits from the first inner class.
+
+
+
+
+package assignments.Assignment7;
+
+public class InnerClass {
+    public static class Inner1{
+        public Inner1(String s){
+
+        }
+
+    }
+}
+class Inner2 extends InnerClass{
+    public class Inner3 extends InnerClass.Inner1{
+        public Inner3(String s)
+        {
+            super(s);
+            System.out.println(s);
+
+        }
+
+    }
+}
+
+
+class Main{
+    public static void main(String[] args)
+    {
+        String s="hello";
+        Inner2 inner2=new Inner2();
+        Inner2.Inner3 inner3=inner2.new Inner3(s);
+    }
+}

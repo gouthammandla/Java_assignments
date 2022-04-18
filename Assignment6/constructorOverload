@@ -1,0 +1,24 @@
+//Create a class with two (overloaded) constructors. Using this, call the second constructor inside the first one.
+
+
+
+
+
+
+
+package assignments.Assignment6;
+
+public class ConstructorOverload {
+    public static void main(String[] args) {
+        A a = new A();
+    }
+}
+
+class A {
+    public  A(){
+        this("Hello");
+    }
+    public A(String str){
+        System.out.println(str);
+    }
+}
