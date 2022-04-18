@@ -1,0 +1,26 @@
+StringBuilder class:
+
+StringBuilder class is a final class which extends AbstractStringBuilder.
+Name of the class is pascal case.
+
+The public methods of StringBuilder class are:
+append()
+compareTo()
+appendCodePoint()
+delete()
+deleteCharAt()
+replace()
+insert()
+indexOf()
+lastIndexOf()
+reverse()
+toString()
+
+
+private methods are:
+writeObject()
+readObject()
+
+
+Names of the methods are verbs or verb phrasesand it follows camelcase.
+
